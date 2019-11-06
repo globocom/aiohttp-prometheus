@@ -4,7 +4,7 @@ AIOHTTP prometheus
 .. image:: https://travis-ci.org/globocom/aiohttp-prometheus.svg?branch=master
     :target: https://travis-ci.org/globocom/aiohttp-prometheus
 
-HTTP metrics for a tornado application
+HTTP metrics for a AIOHTTP application
 
 Installing
 ----------
