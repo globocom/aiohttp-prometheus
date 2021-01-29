@@ -3,8 +3,8 @@
 from setuptools import setup, find_packages
 
 tests_require = [
-    'pytest==5.2.2',
-    'pytest-aiohttp==0.3.0',
+    'pytest~=5.2.2',
+    'pytest-aiohttp~=0.3.0',
     'nose',
     'coverage',
     'flake8',
@@ -40,7 +40,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'aiohttp',
-        'prometheus-client==0.7.1',
+        'prometheus-client~=0.9.0',
     ],
     extras_require={
         'tests': tests_require,
