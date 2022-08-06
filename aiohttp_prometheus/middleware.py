@@ -40,9 +40,12 @@ class MetricsMiddleware:
             requests_total.labels(request.method, handler_name, classify_status_code(response.status)).inc()
             request_duration.labels(request.method, handler_name).observe(spent)
             return response
-        except:  # noqa
+        except Exception as e:  # noqa
             spent = time() - start_time
-            requests_total.labels(request.method, handler_name, '5xx').inc()
+            status_code = '5xx'
+            if hasattr(e, 'status_code'):
+                status_code = classify_status_code(e.status_code)
+            requests_total.labels(request.method, handler_name, status_code).inc()
             request_duration.labels(request.method, handler_name).observe(spent)
 
             raise
